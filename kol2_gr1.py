@@ -20,8 +20,6 @@ from Student import Student
 # data in text files (YAML, JSON).
 # If you have even more courage, try implementing user interface.
 
-#dodac obecnosci, dodatkowa klase do wypisywania info o studentach uczelni
-
 
 if __name__ == "__main__":
 	Jan = Student("Jan", "Kowalski")
@@ -36,7 +34,6 @@ if __name__ == "__main__":
 	print "\nAdding students..."
 	AGH.register_student(Jan)
 	AGH.register_student(Janusz)
-	AGH.print_student_list()
 
 	print "\nAssigning courses..."
 	AGH.assign_course(Jan,"Java")
@@ -49,15 +46,15 @@ if __name__ == "__main__":
 	print "\nAssigning grades..."
 	AGH.add_grade(5.0, Jan,"Java")
 	AGH.add_grade(4.0, Jan,"Java")
-	AGH.add_grade(3.3, Jan,"Java")#nie zadziala
 	AGH.add_grade(3.0, Jan,"Python in the enterprise")
 
 	AGH.add_grade(3.5, Janusz,"Python in the enterprise")
 	AGH.add_grade(4.5, Janusz,"Python in the enterprise")
-	AGH.add_grade(3.5, Janusz,"Java")#nie zadziala
 
+	Jan.save_to_file('info2.txt')
+	print '\n'
+	AGH.load_from_file('info.txt')
+	print '\n'
+	AGH.load_from_file('info.txt')
 
-
-	print "\nPrinting grades..."
-	Jan.print_grades_info()
-	Janusz.print_grades_info()
+	AGH.print_all_grades()
