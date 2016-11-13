@@ -18,7 +18,7 @@ class Student(object):
 
 	def save_to_file(self,filename):
 		file = open(filename, 'w')
-		file.write(str(self) + "\n")
+		file.write(self.name +"," + self.surname + "\n")
 		for course, grades in self.courses.iteritems():
 			file.write(course + ": " + str(grades)[1:-1] + "\n")
 		file.close()
